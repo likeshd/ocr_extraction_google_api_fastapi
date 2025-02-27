@@ -1,0 +1,9 @@
+fastapi
+werkzeug
+pdf2image
+pillow
+pymupdf
+python-dotenv
+requests
+uvicorn
+google-generativeai
