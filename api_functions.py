@@ -143,13 +143,14 @@ async def dl_ocr_extraction(image_input):
 # Testing the functions in passport_ocr.py
 if __name__ == "__main__":
     # Example test case
-    image_path = "path_to_image.jpg"  # Replace with an actual image path
-    image = Image.open(image_path)
-
-    # Run the asynchronous function to test OCR extraction
-    import asyncio
-    loop = asyncio.get_event_loop()
-    result, status_code = loop.run_until_complete(passport_ocr_extraction(image))
-
-    print(f"Status Code: {status_code}")
-    print("OCR Result:", result)
+    pass
+    # image_path = "path_to_image.jpg"  # Replace with an actual image path
+    # image = Image.open(image_path)
+    #
+    # # Run the asynchronous function to test OCR extraction
+    # import asyncio
+    # loop = asyncio.get_event_loop()
+    # result, status_code = loop.run_until_complete(passport_ocr_extraction(image))
+    #
+    # print(f"Status Code: {status_code}")
+    # print("OCR Result:", result)

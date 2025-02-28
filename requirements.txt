@@ -7,3 +7,4 @@ python-dotenv
 requests
 uvicorn
 google-generativeai
+python-docx==1.1.2
