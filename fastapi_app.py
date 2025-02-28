@@ -30,9 +30,15 @@ async def extract_pass_details(image: UploadFile = File(...)):
             image_data = await image.read()
             image = Image.open(BytesIO(image_data))
             # Get OCR extraction result from the imported function
-            result, status_code = await pass_ocr_extraction(image)
-            # Return the result as a JSON response
-            return JSONResponse(content=result, status_code=status_code)
+            data, status_code = await pass_ocr_extraction(image)
+            if status_code == 200:
+                result = {"data": data, "sts": 200, "msg": "Success"}
+                # Return the result as a JSON response
+                return JSONResponse(content=result, status_code=status_code)
+            elif status_code == 400:
+                result = {"msg": "The provided image is not suitable, so the requested details could not be extracted.",
+                     "sts": 400}
+                return JSONResponse(content=result, status_code=status_code)
 
         elif file_ext == 'pdf':
             pdf_bytes = await image.read()
@@ -48,9 +54,15 @@ async def extract_pass_details(image: UploadFile = File(...)):
             img_data = pix.tobytes("png")  # Convert directly to PNG bytes
             image = Image.open(BytesIO(img_data))
             # Get OCR extraction result from the imported function
-            result, status_code = await pass_ocr_extraction(image)
-            # Return the result as a JSON response
-            return JSONResponse(content=result, status_code=status_code)
+            data, status_code = await pass_ocr_extraction(image)
+            if status_code == 200:
+                result = {"data": data, "sts": 200, "msg": "Success"}
+                # Return the result as a JSON response
+                return JSONResponse(content=result, status_code=status_code)
+            elif status_code == 400:
+                result = {"msg": "The provided image is not suitable, so the requested details could not be extracted.",
+                          "sts": 400}
+                return JSONResponse(content=result, status_code=status_code)
 
         # if file_ext in ['doc', 'docx']:
         #     with tempfile.TemporaryDirectory() as tmpdirname:
@@ -107,9 +119,15 @@ async def extract_pvisa_details(image: UploadFile = File(...)):
             image_data = await image.read()
             image = Image.open(BytesIO(image_data))
             # Get OCR extraction result from the imported function
-            result, status_code = await visa_ocr_extraction(image)
-            # Return the result as a JSON response
-            return JSONResponse(content=result, status_code=status_code)
+            data, status_code = await pass_ocr_extraction(image)
+            if status_code == 200:
+                result = {"data": data, "sts": 200, "msg": "Success"}
+                # Return the result as a JSON response
+                return JSONResponse(content=result, status_code=status_code)
+            elif status_code == 400:
+                result = {"msg": "The provided image is not suitable, so the requested details could not be extracted.",
+                          "sts": 400}
+                return JSONResponse(content=result, status_code=status_code)
 
         elif file_ext == 'pdf':
             pdf_bytes = await image.read()
@@ -125,9 +143,15 @@ async def extract_pvisa_details(image: UploadFile = File(...)):
             img_data = pix.tobytes("png")  # Convert directly to PNG bytes
             image = Image.open(BytesIO(img_data))
             # Get OCR extraction result from the imported function
-            result, status_code = await visa_ocr_extraction(image)
-            # Return the result as a JSON response
-            return JSONResponse(content=result, status_code=status_code)
+            data, status_code = await pass_ocr_extraction(image)
+            if status_code == 200:
+                result = {"data": data, "sts": 200, "msg": "Success"}
+                # Return the result as a JSON response
+                return JSONResponse(content=result, status_code=status_code)
+            elif status_code == 400:
+                result = {"msg": "The provided image is not suitable, so the requested details could not be extracted.",
+                          "sts": 400}
+                return JSONResponse(content=result, status_code=status_code)
 
         # if file_ext in ['doc', 'docx']:
         #     with tempfile.TemporaryDirectory() as tmpdirname:
@@ -184,9 +208,15 @@ async def extract_emiratesid_details(image: UploadFile = File(...)):
             image_data = await image.read()
             image = Image.open(BytesIO(image_data))
             # Get OCR extraction result from the imported function
-            result, status_code = await eid_ocr_extraction(image)
-            # Return the result as a JSON response
-            return JSONResponse(content=result, status_code=status_code)
+            data, status_code = await pass_ocr_extraction(image)
+            if status_code == 200:
+                result = {"data": data, "sts": 200, "msg": "Success"}
+                # Return the result as a JSON response
+                return JSONResponse(content=result, status_code=status_code)
+            elif status_code == 400:
+                result = {"msg": "The provided image is not suitable, so the requested details could not be extracted.",
+                          "sts": 400}
+                return JSONResponse(content=result, status_code=status_code)
 
         elif file_ext == 'pdf':
             pdf_bytes = await image.read()
@@ -202,9 +232,15 @@ async def extract_emiratesid_details(image: UploadFile = File(...)):
             img_data = pix.tobytes("png")  # Convert directly to PNG bytes
             image = Image.open(BytesIO(img_data))
             # Get OCR extraction result from the imported function
-            result, status_code = await eid_ocr_extraction(image)
-            # Return the result as a JSON response
-            return JSONResponse(content=result, status_code=status_code)
+            data, status_code = await pass_ocr_extraction(image)
+            if status_code == 200:
+                result = {"data": data, "sts": 200, "msg": "Success"}
+                # Return the result as a JSON response
+                return JSONResponse(content=result, status_code=status_code)
+            elif status_code == 400:
+                result = {"msg": "The provided image is not suitable, so the requested details could not be extracted.",
+                          "sts": 400}
+                return JSONResponse(content=result, status_code=status_code)
 
         # if file_ext in ['doc', 'docx']:
         #     with tempfile.TemporaryDirectory() as tmpdirname:
@@ -261,9 +297,15 @@ async def extract_driving_license_details(image: UploadFile = File(...)):
             image_data = await image.read()
             image = Image.open(BytesIO(image_data))
             # Get OCR extraction result from the imported function
-            result, status_code = await dl_ocr_extraction(image)
-            # Return the result as a JSON response
-            return JSONResponse(content=result, status_code=status_code)
+            data, status_code = await pass_ocr_extraction(image)
+            if status_code == 200:
+                result = {"data": data, "sts": 200, "msg": "Success"}
+                # Return the result as a JSON response
+                return JSONResponse(content=result, status_code=status_code)
+            elif status_code == 400:
+                result = {"msg": "The provided image is not suitable, so the requested details could not be extracted.",
+                          "sts": 400}
+                return JSONResponse(content=result, status_code=status_code)
 
         elif file_ext == 'pdf':
             pdf_bytes = await image.read()
@@ -279,9 +321,15 @@ async def extract_driving_license_details(image: UploadFile = File(...)):
             img_data = pix.tobytes("png")  # Convert directly to PNG bytes
             image = Image.open(BytesIO(img_data))
             # Get OCR extraction result from the imported function
-            result, status_code = await dl_ocr_extraction(image)
-            # Return the result as a JSON response
-            return JSONResponse(content=result, status_code=status_code)
+            data, status_code = await pass_ocr_extraction(image)
+            if status_code == 200:
+                result = {"data": data, "sts": 200, "msg": "Success"}
+                # Return the result as a JSON response
+                return JSONResponse(content=result, status_code=status_code)
+            elif status_code == 400:
+                result = {"msg": "The provided image is not suitable, so the requested details could not be extracted.",
+                          "sts": 400}
+                return JSONResponse(content=result, status_code=status_code)
 
         # if file_ext in ['doc', 'docx']:
         #     with tempfile.TemporaryDirectory() as tmpdirname:

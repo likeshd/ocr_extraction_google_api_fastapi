@@ -26,7 +26,7 @@ async def pass_ocr_extraction(image_input):
     # Prepare the prompt for the Gemini Pro Vision model
     prompt = """Act as an OCR assistant.
                             If the provided image contains text that is not properly oriented, correct its orientation before extracting the text.  
-                            If  provided image is not passport then return not passport image.
+                            If  provided image is not country passport then write its not country passport image.
                             Extract the following details from the provided image and return them in JSON format:
                             {
                                 "Passport No": "",
