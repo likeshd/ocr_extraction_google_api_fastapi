@@ -91,7 +91,6 @@ async def extract_pass_details(image: UploadFile = File(...)):
         return JSONResponse(content={"error": str(e)}, status_code=400)
 
 
-
 # FastAPI route to handle the image upload and OCR extraction
 @app.post("/extract_visa_details")
 async def extract_pvisa_details(image: UploadFile = File(...)):
