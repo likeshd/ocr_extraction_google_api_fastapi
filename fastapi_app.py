@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
 import uvicorn
-from api_functions import passport_ocr_extraction  # Import function from passport_ocr.py
+from api_functions import pass_ocr_extraction,visa_ocr_extraction,eid_ocr_extraction,dl_ocr_extraction   # Import function from passport_ocr.py
 from io import BytesIO
 from PIL import Image
 
@@ -17,7 +17,7 @@ async def extract_passport_details(file: UploadFile):
         image = Image.open(BytesIO(image_data))
 
         # Get OCR extraction result from the imported function
-        result, status_code = await passport_ocr_extraction(image)
+        result, status_code = await pass_ocr_extraction(image)
 
         # Return the result as a JSON response
         return JSONResponse(content=result, status_code=status_code)
