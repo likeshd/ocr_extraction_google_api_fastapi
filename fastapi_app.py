@@ -12,10 +12,10 @@ from api_functions import pass_ocr_extraction,visa_ocr_extraction,eid_ocr_extrac
 
 
 # Initialize FastAPI app
-app = FastAPI()
+app1 = FastAPI()
 
 # FastAPI route to handle the image upload and OCR extraction
-@app.post("/extract_passport_details")
+@app1.post("/extract_passport_details")
 async def extract_pass_details(image: UploadFile = File(...)):
     try:
         if  not  image:
@@ -104,7 +104,7 @@ async def extract_pass_details(image: UploadFile = File(...)):
 
 
 # FastAPI route to handle the image upload and OCR extraction
-@app.post("/extract_visa_details")
+@app1.post("/extract_visa_details")
 async def extract_pvisa_details(image: UploadFile = File(...)):
     try:
         if  not  image:
@@ -193,7 +193,7 @@ async def extract_pvisa_details(image: UploadFile = File(...)):
 
 
 # FastAPI route to handle the image upload and OCR extraction
-@app.post("/extract_eid_details")
+@app1.post("/extract_eid_details")
 async def extract_emiratesid_details(image: UploadFile = File(...)):
     try:
         if  not  image:
@@ -282,7 +282,7 @@ async def extract_emiratesid_details(image: UploadFile = File(...)):
 
 
 # FastAPI route to handle the image upload and OCR extraction
-@app.post("/extract_dl_details")
+@app1.post("/extract_dl_details")
 async def extract_driving_license_details(image: UploadFile = File(...)):
     try:
         if  not  image:
@@ -374,4 +374,4 @@ async def extract_driving_license_details(image: UploadFile = File(...)):
 if __name__ == "__main__":
     # Run the FastAPI application using uvicorn
     # uvicorn.run(app, host="127.0.0.1", port=8000)
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app1, host="0.0.0.0", port=8000)
