@@ -17,7 +17,7 @@ if not GOOGLE_API_KEY:
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize the generative model
-model = genai.GenerativeModel('gemini-2.0-flash-exp') # Changed model
+model = genai.GenerativeModel('gemini-2.0-flash') # Changed model
 
 # Asynchronous OCR function using Google API
 async def pass_ocr_extraction(image_input):
